@@ -1,0 +1,204 @@
+{
+  "name": "sifr-vscode",
+  "displayName": "Sifr",
+  "description": "VS Code language support for Sifr using the native Sifr LSP server.",
+  "version": "0.0.0",
+  "publisher": "sifr-lang",
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sifr-lang/sifr-vscode.git"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "sifr",
+    "language",
+    "lsp",
+    "compiler"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "activationEvents": [
+    "onLanguage:sifr",
+    "onCommand:sifr.restartLanguageServer",
+    "onCommand:sifr.showLanguageServerLogs",
+    "onCommand:sifr.locateBinary",
+    "onCommand:sifr.runCheck",
+    "onCommand:sifr.runTests",
+    "onCommand:sifr.runLint",
+    "onCommand:sifr.checkFormat",
+    "onCommand:sifr.formatDocument",
+    "onCommand:sifr.showGeneratedRust",
+    "onCommand:sifr.explainDiagnostic"
+  ],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "sifr",
+        "aliases": [
+          "Sifr",
+          "sifr"
+        ],
+        "extensions": [
+          ".sifr"
+        ],
+        "configuration": "./language-configuration/sifr.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sifr",
+        "scopeName": "source.sifr",
+        "path": "./syntaxes/sifr.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "Sifr",
+      "properties": {
+        "sifr.lsp.path": {
+          "type": "string",
+          "default": "sifr",
+          "description": "Path to the Sifr executable."
+        },
+        "sifr.lsp.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Controls Sifr LSP protocol tracing."
+        },
+        "sifr.diagnostics.mode": {
+          "type": "string",
+          "enum": [
+            "off",
+            "open-files",
+            "workspace"
+          ],
+          "default": "open-files",
+          "description": "Controls Sifr diagnostic publication."
+        },
+        "sifr.format.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enables Sifr formatting through the language server."
+        },
+        "sifr.lint.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enables Sifr lint diagnostics through the language server."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "sifr.restartLanguageServer",
+        "title": "Sifr: Restart Language Server",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.showLanguageServerLogs",
+        "title": "Sifr: Show Language Server Logs",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.locateBinary",
+        "title": "Sifr: Locate Sifr Binary",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.runCheck",
+        "title": "Sifr: Run Check",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.runTests",
+        "title": "Sifr: Run Tests",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.runLint",
+        "title": "Sifr: Run Lint",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.checkFormat",
+        "title": "Sifr: Check Format",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.formatDocument",
+        "title": "Sifr: Format Document",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.showGeneratedRust",
+        "title": "Sifr: Show Generated Rust",
+        "category": "Sifr"
+      },
+      {
+        "command": "sifr.explainDiagnostic",
+        "title": "Sifr: Explain Diagnostic",
+        "category": "Sifr"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "sifr.restartLanguageServer"
+        },
+        {
+          "command": "sifr.showLanguageServerLogs"
+        },
+        {
+          "command": "sifr.locateBinary"
+        },
+        {
+          "command": "sifr.runCheck"
+        },
+        {
+          "command": "sifr.runTests"
+        },
+        {
+          "command": "sifr.runLint"
+        },
+        {
+          "command": "sifr.checkFormat"
+        },
+        {
+          "command": "sifr.formatDocument"
+        },
+        {
+          "command": "sifr.showGeneratedRust"
+        },
+        {
+          "command": "sifr.explainDiagnostic"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "node scripts/lint.js",
+    "typecheck": "tsc -p ./ --noEmit",
+    "test": "npm run compile && node out/test/unit.test.js",
+    "test:extension": "npm run compile && node out/test/extensionSmoke.test.js",
+    "package": "npm run compile && mkdir -p dist && vsce package --out dist/sifr-vscode-0.0.0.vsix"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^3.2.1",
+    "typescript": "^5.7.3"
+  }
+}
