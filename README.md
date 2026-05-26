@@ -11,6 +11,10 @@ All semantic behavior is delegated to Sifr CLI/LSP surfaces. The extension does
 not implement parsing, type checking, diagnostics, formatting, linting, rename,
 references, ownership analysis, or generated-Rust logic.
 
+Formatting is provided by the native LSP document formatting provider. Use the
+`Sifr: Format Document` command or VS Code `editor.formatOnSave`; `sifr.format.enable`
+controls whether the server advertises formatting support.
+
 ## Local Development
 
 ```bash
