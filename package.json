@@ -2,7 +2,7 @@
   "name": "sifr-vscode",
   "displayName": "Sifr",
   "description": "VS Code language support for Sifr using the native Sifr LSP server.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "publisher": "sifr-lang",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -190,7 +190,7 @@
     "typecheck": "tsc -p ./ --noEmit",
     "test": "npm run compile && node out/test/unit.test.js",
     "test:extension": "npm run compile && node out/test/extensionSmoke.test.js",
-    "package": "npm run compile && mkdir -p dist && vsce package --out dist/sifr-vscode-0.0.0.vsix"
+    "package": "npm run compile && mkdir -p dist && vsce package --out dist/sifr-vscode-0.1.0.vsix"
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1"
