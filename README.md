@@ -30,12 +30,12 @@ Use `sifr.lsp.path` to point at a local Sifr binary when it is not on `PATH`.
 
 ## Compatibility
 
-Version `0.1.0` supports the Sifr CLI/LSP `0.0.x` Phase 36 tooling contract.
+Version `0.1.0` supports the Sifr CLI/LSP `0.0.x` developer tooling rules.
 The extension requires VS Code `^1.90.0` and launches the language server with
 `sifr lsp --stdio`.
 
 ## Versioning
 
 This extension version is intentionally independent from the Sifr compiler
-version while Phase 36 is active. Release notes must state the supported Sifr
+version while the developer tooling surface is active. Release notes must state the supported Sifr
 compiler/LSP version range before marketplace publication.
