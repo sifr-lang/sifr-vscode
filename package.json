@@ -3,7 +3,7 @@
   "displayName": "Sifr",
   "description": "VS Code language support for Sifr using the native Sifr LSP server.",
   "version": "0.1.0",
-  "publisher": "sifr-lang",
+  "publisher": "sifr",
   "license": "MIT",
   "icon": "assets/icon.png",
   "repository": {
