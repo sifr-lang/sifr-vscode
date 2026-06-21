@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.4
+
+- Fix Sifr LSP startup in VS Code by separating extension command-palette
+  commands from internal server workspace commands.
+- Align generated Rust preview and diagnostic explanation requests with the
+  native LSP command schemas.
+
 ## 0.1.3
 
 - Publish the editor package for the Sifr `0.1.0-beta.10` CLI/LSP release,

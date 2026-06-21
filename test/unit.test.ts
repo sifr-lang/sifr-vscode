@@ -6,6 +6,7 @@ import {
   normalizeTrace,
   serverCommand,
 } from "../src/config";
+import { diagnosticCodeValue } from "../src/diagnostics";
 
 assert.deepEqual(lspArgs, ["lsp", "--stdio"]);
 assert.equal(normalizeBinaryPath("  /tmp/sifr  "), "/tmp/sifr");
@@ -18,5 +19,9 @@ assert.equal(normalizeDiagnosticsMode("off"), "off");
 assert.equal(normalizeDiagnosticsMode("workspace"), "workspace");
 assert.equal(normalizeDiagnosticsMode("bad"), "open-files");
 assert.deepEqual(serverCommand("sifr"), { command: "sifr", args: ["lsp", "--stdio"] });
+assert.equal(diagnosticCodeValue("SIFR-NAME-0001"), "SIFR-NAME-0001");
+assert.equal(diagnosticCodeValue(1001), "1001");
+assert.equal(diagnosticCodeValue({ value: "SIFR-NAME-0001" }), "SIFR-NAME-0001");
+assert.equal(diagnosticCodeValue(undefined), undefined);
 
 console.log("unit tests: PASS");

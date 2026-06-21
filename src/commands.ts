@@ -1,6 +1,12 @@
 import * as vscode from "vscode";
 import { activeSifrFile, runSifr, showCliResult, workspaceCwd } from "./cli";
+import { diagnosticCodeValue } from "./diagnostics";
 import { SifrLanguageClient } from "./lsp";
+
+const serverCommands = {
+  explainDiagnostic: "sifr.server.explainDiagnostic",
+  showGeneratedRust: "sifr.server.showGeneratedRust",
+} as const;
 
 export function registerCommands(
   context: vscode.ExtensionContext,
@@ -74,32 +80,12 @@ async function showGeneratedRust(lsp: SifrLanguageClient): Promise<void> {
     return;
   }
   const result = await client.sendRequest<unknown>("workspace/executeCommand", {
-    command: "sifr.showGeneratedRust",
-    arguments: [{
-      uri: uri.toString(),
-      range: editorSelectionRange(),
-    }],
+    command: serverCommands.showGeneratedRust,
+    arguments: [uri.toString()],
   });
   const content = typeof result === "string" ? result : JSON.stringify(result, null, 2);
   const doc = await vscode.workspace.openTextDocument({ language: "rust", content });
   await vscode.window.showTextDocument(doc, { preview: true });
-}
-
-function editorSelectionRange(): unknown {
-  const editor = vscode.window.activeTextEditor;
-  if (!editor || editor.selection.isEmpty) {
-    return undefined;
-  }
-  return {
-    start: {
-      line: editor.selection.start.line,
-      character: editor.selection.start.character,
-    },
-    end: {
-      line: editor.selection.end.line,
-      character: editor.selection.end.character,
-    },
-  };
 }
 
 async function explainDiagnostic(lsp: SifrLanguageClient): Promise<void> {
@@ -115,9 +101,14 @@ async function explainDiagnostic(lsp: SifrLanguageClient): Promise<void> {
     void vscode.window.showInformationMessage("No Sifr diagnostic is available for this file.");
     return;
   }
+  const code = diagnosticCodeValue(diagnostic.code);
+  if (!code) {
+    void vscode.window.showWarningMessage("The selected Sifr diagnostic does not have a diagnostic code.");
+    return;
+  }
   const result = await client.sendRequest<unknown>("workspace/executeCommand", {
-    command: "sifr.explainDiagnostic",
-    arguments: [{ uri: editor.document.uri.toString(), diagnostic }],
+    command: serverCommands.explainDiagnostic,
+    arguments: [code],
   });
   const content = typeof result === "string" ? result : JSON.stringify(result, null, 2);
   const doc = await vscode.workspace.openTextDocument({ language: "markdown", content });
