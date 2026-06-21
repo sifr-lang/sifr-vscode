@@ -40,6 +40,13 @@ const failures = [];
 if (!language || !language.extensions.includes(".sifr")) {
   failures.push("package.json must register .sifr for language id sifr");
 }
+if (
+  !language?.icon ||
+  language.icon.light !== "./assets/icon.png" ||
+  language.icon.dark !== "./assets/icon.png"
+) {
+  failures.push("package.json must register the Sifr file icon for light and dark themes");
+}
 if (grammar.scopeName !== "source.sifr") {
   failures.push("TextMate grammar must use source.sifr");
 }

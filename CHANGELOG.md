@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Add a Sifr file icon contribution for `.sifr` files in VS Code file
+  explorers and icon themes that use language icon metadata.
+- Add a manifest lint check that keeps the file icon contribution registered.
+
 ## 0.1.1
 
 - Fix extension activation in packaged VSIX builds by including runtime
