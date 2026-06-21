@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+
+- Fix extension activation in packaged VSIX builds by including runtime
+  dependencies needed by the native LSP client.
+- Add a packaging smoke assertion that prevents excluding
+  `vscode-languageclient` from release artifacts.
+- Refresh the marketplace icon.
+
 ## 0.1.0
 
 - Marketplace-ready initial release for Sifr CLI/LSP `0.0.x`.
