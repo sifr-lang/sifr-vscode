@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+- Publish the editor package for the Sifr `0.1.0-beta.10` CLI/LSP release,
+  including the VS Code-compatible LSP position-encoding fix.
+
 ## 0.1.2
 
 - Add a Sifr file icon contribution for `.sifr` files in VS Code file
