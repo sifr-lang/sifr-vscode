@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5
+
+- Publish compatibility metadata for the Sifr `0.1.0-beta.12` CLI/LSP release,
+  including the stdlib-backed editor analysis fix for diagnostics, completion,
+  navigation, and generated-Rust queries.
+
 ## 0.1.4
 
 - Fix Sifr LSP startup in VS Code by separating extension command-palette
