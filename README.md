@@ -30,7 +30,7 @@ Use `sifr.lsp.path` to point at a local Sifr binary when it is not on `PATH`.
 
 ## Compatibility
 
-Version `0.1.0` supports the Sifr CLI/LSP `0.0.x` developer tooling rules.
+Version `0.1.1` supports the Sifr CLI/LSP `0.0.x` developer tooling rules.
 The extension requires VS Code `^1.90.0` and launches the language server with
 `sifr lsp --stdio`.
 

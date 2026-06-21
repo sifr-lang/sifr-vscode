@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+
+- Restores command palette registrations for language-server restart, document
+  formatting, checks, linting, tests, generated Rust preview, and diagnostic
+  explanation.
+- Keeps the native Sifr LSP server compatible with VS Code clients by using the
+  UTF-16 position encoding expected by VS Code's language client.
+
 ## 0.1.0
 
 - Marketplace-ready initial release for Sifr CLI/LSP `0.0.x`.
