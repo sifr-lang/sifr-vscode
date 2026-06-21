@@ -1,12 +1,23 @@
 # Changelog
 
+## 0.1.3
+
+- Publish the editor package for the Sifr `0.1.0-beta.10` CLI/LSP release,
+  including the VS Code-compatible LSP position-encoding fix.
+
+## 0.1.2
+
+- Add a Sifr file icon contribution for `.sifr` files in VS Code file
+  explorers and icon themes that use language icon metadata.
+- Add a manifest lint check that keeps the file icon contribution registered.
+
 ## 0.1.1
 
-- Restores command palette registrations for language-server restart, document
-  formatting, checks, linting, tests, generated Rust preview, and diagnostic
-  explanation.
-- Keeps the native Sifr LSP server compatible with VS Code clients by using the
-  UTF-16 position encoding expected by VS Code's language client.
+- Fix extension activation in packaged VSIX builds by including runtime
+  dependencies needed by the native LSP client.
+- Add a packaging smoke assertion that prevents excluding
+  `vscode-languageclient` from release artifacts.
+- Refresh the marketplace icon.
 
 ## 0.1.0
 
