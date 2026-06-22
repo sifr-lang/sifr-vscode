@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.6
+
+- Publish compatibility metadata for the Sifr `0.1.0-beta.13` CLI/LSP release,
+  including the single-owner project analysis fix for save, semantic token,
+  folding range, and document symbol requests.
+
 ## 0.1.5
 
 - Publish compatibility metadata for the Sifr `0.1.0-beta.12` CLI/LSP release,
