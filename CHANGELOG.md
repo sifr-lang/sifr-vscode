@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.7
+
+- Publish compatibility metadata for the Sifr `0.1.0-beta.14` CLI/LSP release,
+  including frontend-owned semantic hover and signature help for functions,
+  locals, parameters, imports, stdlib calls, and multi-line calls.
+
 ## 0.1.6
 
 - Publish compatibility metadata for the Sifr `0.1.0-beta.13` CLI/LSP release,
