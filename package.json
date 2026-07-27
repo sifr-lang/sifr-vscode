@@ -3,7 +3,7 @@
   "displayName": "Sifr",
   "description": "VS Code language support for Sifr using the native Sifr LSP server.",
   "version": "0.2.0",
-  "sifrCompilerCompatibility": ">=0.1.0 <0.2.0",
+  "sifrCompilerCompatibility": ">=0.1.0,<0.2.0",
   "publisher": "sifr",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -21,7 +21,7 @@
     "compiler"
   ],
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.91.0"
   },
   "activationEvents": [
     "onLanguage:sifr",
@@ -191,18 +191,19 @@
   },
   "scripts": {
     "compile": "tsc -p ./",
+    "clean": "node -e \"const fs=require('fs'); for (const path of ['out','dist']) fs.rmSync(path,{recursive:true,force:true})\"",
     "lint": "node scripts/lint.js",
     "typecheck": "tsc -p ./ --noEmit",
     "test": "npm run compile && node out/test/unit.test.js",
     "test:extension": "npm run compile && node out/test/extensionSmoke.test.js",
-    "package": "npm run compile && node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && mkdir -p dist && vsce package --out dist/sifr-vscode-$npm_package_version.vsix"
+    "package": "npm run clean && npm run compile && mkdir -p dist && vsce package --out dist/sifr-vscode-$npm_package_version.vsix"
   },
   "dependencies": {
     "vscode-languageclient": "^10.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
-    "@types/vscode": "^1.90.0",
+    "@types/vscode": "~1.91.0",
     "@vscode/vsce": "^3.9.2",
     "typescript": "^5.7.3"
   }

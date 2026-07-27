@@ -3,7 +3,7 @@
 ## 0.2.0
 
 - Support stable Sifr compiler and CLI/LSP releases in the range
-  `>=0.1.0 <0.2.0`.
+  `>=0.1.0,<0.2.0`.
 - Start every package build from an empty `dist/` directory so one candidate
   produces exactly one VSIX.
 

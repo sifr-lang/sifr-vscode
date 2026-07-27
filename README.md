@@ -31,7 +31,7 @@ Use `sifr.lsp.path` to point at a local Sifr binary when it is not on `PATH`.
 ## Compatibility
 
 Version `0.2.0` supports stable Sifr compiler and CLI/LSP releases in the
-range `>=0.1.0 <0.2.0`. The extension requires VS Code `^1.90.0` and launches
+range `>=0.1.0,<0.2.0`. The extension requires VS Code `^1.91.0` and launches
 the language server with `sifr lsp --stdio`.
 
 ## Versioning
