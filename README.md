@@ -18,7 +18,7 @@ controls whether the server advertises formatting support.
 ## Local Development
 
 ```bash
-npm install
+npm ci
 npm run lint
 npm run typecheck
 npm test
@@ -30,12 +30,12 @@ Use `sifr.lsp.path` to point at a local Sifr binary when it is not on `PATH`.
 
 ## Compatibility
 
-Version `0.1.5` supports the Sifr CLI/LSP `0.1.0-beta.12` developer tooling rules.
-The extension requires VS Code `^1.90.0` and launches the language server with
-`sifr lsp --stdio`.
+Version `0.2.0` supports stable Sifr compiler and CLI/LSP releases in the
+range `>=0.1.0,<0.2.0`. The extension requires VS Code `^1.91.0` and launches
+the language server with `sifr lsp --stdio`.
 
 ## Versioning
 
-This extension version is intentionally independent from the Sifr compiler
-version while the developer tooling surface is active. Release notes must state the supported Sifr
-compiler/LSP version range before marketplace publication.
+The extension version is intentionally independent from the Sifr compiler
+version. Marketplace metadata and release notes declare the supported Sifr
+compiler/LSP range; they do not point at one mutable active compiler version.

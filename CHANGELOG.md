@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Support stable Sifr compiler and CLI/LSP releases in the range
+  `>=0.1.0,<0.2.0`.
+- Start every package build from an empty `dist/` directory so one candidate
+  produces exactly one VSIX.
+
 ## 0.1.7
 
 - Publish compatibility metadata for the Sifr `0.1.0-beta.14` CLI/LSP release,

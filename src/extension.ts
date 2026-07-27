@@ -6,8 +6,11 @@ import { registerTests } from "./tests";
 let lsp: SifrLanguageClient | undefined;
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
-  const output = vscode.window.createOutputChannel("Sifr");
-  const traceOutput = vscode.window.createOutputChannel("Sifr Language Server Trace");
+  const output = vscode.window.createOutputChannel("Sifr", { log: true });
+  const traceOutput = vscode.window.createOutputChannel(
+    "Sifr Language Server Trace",
+    { log: true },
+  );
   context.subscriptions.push(output, traceOutput);
 
   lsp = new SifrLanguageClient(output, traceOutput);

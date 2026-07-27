@@ -11,8 +11,8 @@ export class SifrLanguageClient {
   private client: LanguageClient | undefined;
 
   public constructor(
-    private readonly output: vscode.OutputChannel,
-    private readonly traceOutput: vscode.OutputChannel,
+    private readonly output: vscode.LogOutputChannel,
+    private readonly traceOutput: vscode.LogOutputChannel,
   ) {}
 
   public current(): LanguageClient | undefined {
