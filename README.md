@@ -17,8 +17,12 @@ controls whether the server advertises formatting support.
 
 ## Local Development
 
+Node.js 24.19.0 and its bundled npm 11.17.0 are required. The checked-in
+`.node-version`, package metadata, and npm `devEngines` policy all select those
+exact versions and reject a different development toolchain.
+
 ```bash
-npm ci
+npm ci --ignore-scripts --include=dev
 npm run lint
 npm run typecheck
 npm test
