@@ -17,11 +17,14 @@ controls whether the server advertises formatting support.
 
 ## Local Development
 
-Node.js 24.19.0 and its bundled npm 11.17.0 are required. The checked-in
+Node.js 26.8.1 and independently selected npm 12.0.2 are required. The checked-in
 `.node-version`, package metadata, and npm `devEngines` policy all select those
 exact versions and reject a different development toolchain.
 
 ```bash
+item_npm_root="$(mktemp -d "${TMPDIR:-/tmp}/sifr-vscode-npm.XXXXXX")"
+item_npm_bin="$(bash scripts/setup-npm.sh "${item_npm_root}")"
+export PATH="${item_npm_bin}:${PATH}"
 npm ci --ignore-scripts --include=dev
 npm run lint
 npm run typecheck

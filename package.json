@@ -6,7 +6,7 @@
   "sifrCompilerCompatibility": ">=0.1.0,<0.2.0",
   "publisher": "sifr",
   "license": "MIT",
-  "packageManager": "npm@11.17.0",
+  "packageManager": "npm@12.0.2",
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
@@ -22,19 +22,19 @@
     "compiler"
   ],
   "engines": {
-    "node": "24.19.0",
-    "npm": "11.17.0",
+    "node": "26.8.1",
+    "npm": "12.0.2",
     "vscode": "^1.91.0"
   },
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": "24.19.0",
+      "version": "26.8.1",
       "onFail": "error"
     },
     "packageManager": {
       "name": "npm",
-      "version": "11.17.0",
+      "version": "12.0.2",
       "onFail": "error"
     }
   },
