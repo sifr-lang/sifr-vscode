@@ -31,14 +31,21 @@ npm run typecheck
 npm test
 npm run test:extension
 npm run package
+npm audit
 ```
+
+To qualify activation in the exact VS Code application selected by
+`engines.vscode`, set `VSCODE_EXECUTABLE_PATH` to that application's absolute
+executable path and run `npm run test:application`. The test uses isolated
+user data and extensions directories and checks activation and registered
+commands. CLI/LSP behavior additionally requires compiler qualification.
 
 Use `sifr.lsp.path` to point at a local Sifr binary when it is not on `PATH`.
 
 ## Compatibility
 
 Version `0.2.0` supports stable Sifr compiler and CLI/LSP releases in the
-range `>=0.1.0,<0.2.0`. The extension requires VS Code `^1.91.0` and launches
+range `>=0.1.0,<0.2.0`. The extension requires VS Code `^1.137.0` and launches
 the language server with `sifr lsp --stdio`.
 
 ## Versioning

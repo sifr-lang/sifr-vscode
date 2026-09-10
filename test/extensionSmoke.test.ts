@@ -45,4 +45,19 @@ assert.ok(
   "package script must name VSIX artifacts from package version",
 );
 
+function toolchainMatches(manifest: typeof packageJson): boolean {
+  const node = manifest.engines.node.split(".")[0];
+  const nodeTypes = manifest.devDependencies["@types/node"].split(".")[0];
+  const vscode = manifest.engines.vscode.replace(/^\^/, "").split(".").slice(0, 2).join(".");
+  const vscodeTypes = manifest.devDependencies["@types/vscode"].split(".").slice(0, 2).join(".");
+  return node === nodeTypes && vscode === vscodeTypes;
+}
+
+assert.ok(toolchainMatches(packageJson), "Node/VS Code declarations must match their selected runtime lines");
+for (const name of ["@types/node", "@types/vscode"]) {
+  const drifted = structuredClone(packageJson);
+  drifted.devDependencies[name] = "0.0.0";
+  assert.equal(toolchainMatches(drifted), false, `${name} runtime drift must be rejected`);
+}
+
 console.log("extension smoke tests: PASS");
