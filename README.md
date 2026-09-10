@@ -17,7 +17,7 @@ controls whether the server advertises formatting support.
 
 ## Local Development
 
-Node.js 26.8.1 and independently selected npm 12.0.2 are required. The checked-in
+Node.js 26.8.2 and independently selected npm 12.0.2 are required. The checked-in
 `.node-version`, package metadata, and npm `devEngines` policy all select those
 exact versions and reject a different development toolchain.
 
